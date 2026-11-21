@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Pilkades Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <h3>PILKADES DESA MAREMANG (SIMULASI)</h3>
+        <p>Kecamatan Kalijati, Kabupaten Subang - Tahun 2026</p>
+    </div>
+
+    <!-- LAYAR 1: DAFTAR KANDIDAT -->
+    <div id="screen-kandidat" class="screen active">
+        <h3>Silakan Pilih Calon Kepala Desa</h3>
+        <p style="font-size: 14px; color: #7f8c8d;">Tekan pada kotak kandidat yang Anda pilih</p>
+        
+        <div class="kandidat-grid">
+            <!-- Kandidat 1 -->
+            <div class="kandidat-card" onclick="pilihKandidat(event, 1, 'CALON 01')">
+                <div class="foto-container">
+                    <div class="nomor-urut">1</div>
+                    <img src="image/02.png" class="foto-kandidat" alt="Foto Calon 01">
+                </div>
+                <div class="nama-kandidat">CALON 01</div>
+            </div>
+
+            <!-- Kandidat 2 -->
+            <div class="kandidat-card" onclick="pilihKandidat(event, 2, 'CALON 02')">
+                <div class="foto-container">
+                    <div class="nomor-urut">2</div>
+                    <img src="image/02.png" class="foto-kandidat" alt="Foto Calon 02">
+                </div>
+                <div class="nama-kandidat">CALON 02</div>
+            </div>
+
+            <!-- Kandidat 3 -->
+            <div class="kandidat-card" onclick="pilihKandidat(event, 3, 'CALON 03')">
+                <div class="foto-container">
+                    <div class="nomor-urut">3</div>
+                    <img src="image/02.png" class="foto-kandidat" alt="Foto Calon 03">
+                </div>
+                <div class="nama-kandidat">CALON 03</div>
+            </div>
+
+            <!-- Kandidat 4 -->
+            <div class="kandidat-card" onclick="pilihKandidat(event, 4, 'KUSNA SUPRIATNA')">
+                <div class="foto-container">
+                    <div class="nomor-urut">4</div>
+                    <img src="image/calon.jpeg" class="foto-kandidat" alt="Foto Kusna Supriatna">
+                </div>
+                <div class="nama-kandidat">KUSNA SUPRIATNA</div>
+            </div>
+        </div>
+
+        <button id="btn-pilih-utama" class="btn-pilih" disabled onclick="tampilKonfirmasi()">PILIH KANDIDAT INI</button>
+    </div>
+
+    <!-- LAYAR 2: KONFIRMASI -->
+    <div id="screen-konfirmasi" class="screen">
+        <h3>Konfirmasi Pilihan Anda</h3>
+        <p>Apakah Anda yakin memilih kandidat ini?</p>
+        
+        <div class="konfirmasi-box">
+            <div id="konfirmasi-foto-container"></div>
+            <h2 id="nama-konfirmasi" style="margin-top: 10px;">Nama Kandidat</h2>
+            <p id="nomor-konfirmasi">Calon Nomor Urut X</p>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-batal" onclick="kembaliPilih()">ULANGI</button>
+            <button class="btn-lanjut" onclick="prosesPilih()">PILIH</button>
+        </div>
+    </div>
+
+    <!-- LAYAR 3: SUKSES -->
+    <div id="screen-sukses" class="screen" onclick="resetAplikasi()">
+        <div class="bg-blur-replika">
+            <div class="judul-blur">
+                <h3>Silakan Pilih Calon Kepala Desa</h3>
+            </div>
+            <div class="bg-blur-grid">
+                <div class="bg-blur-card"><img src="image/02.png" class="foto-kandidat" alt="Calon 1"></div>
+                <div class="bg-blur-card"><img src="image/02.png" class="foto-kandidat" alt="Calon 2"></div>
+                <div class="bg-blur-card"><img src="image/02.png" class="foto-kandidat" alt="Calon 3"></div>
+                <div class="bg-blur-card"><img src="image/calon.jpeg" class="foto-kandidat" alt="Kusna Supriatna"></div>
+            </div>
+        </div>
+
+        <div class="bg-blur-overlay"></div>
+
+        <div class="sukses-content">
+            <div class="sukses-icon">✅</div>
+            <h2>Terima Kasih!</h2>
+            <p style="margin-top: 10px; font-size: 18px; font-weight: bold; color: #2c3e50;">Suara Anda telah berhasil direkam.</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
